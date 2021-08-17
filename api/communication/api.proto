@@ -37,7 +37,6 @@ message ModelContent {
 }
 
 message Model {
-        string model_name = 1;
         string model_data_string = 2;
         string scaler_string = 3;
         // ModelContent ModelDataFloat = 3;

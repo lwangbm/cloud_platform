@@ -11,7 +11,7 @@ NEGATIVE_LABEL = 2
 ATTACK_THRESHOLD = 4
 colors = ["#0000BD", "#D30000", "g", "#FF7C00"]
 CLOUD_PORT = 9996
-DEVICES = ["ransomware", "concentrator"]
+DEVICES = ["RANSOMWARE", "CONCENTRATOR"]
 MODEL_TYPES = [
     "naive_bayes_classifier",
     "knn_classifier",

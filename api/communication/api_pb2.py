@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1b\x61pi/communication/api.proto\x12\x11\x61pi.communication\"#\n\x11\x44\x61taFeatureVector\x12\x0e\n\x06values\x18\x01 \x03(\x02\"J\n\x11\x44\x61taFeatureMatrix\x12\x35\n\x07vectors\x18\x01 \x03(\x0b\x32$.api.communication.DataFeatureVector\"\x1d\n\x0cModelContent\x12\r\n\x05value\x18\x01 \x03(\x02\"M\n\x05Model\x12\x12\n\nmodel_name\x18\x01 \x01(\t\x12\x19\n\x11model_data_string\x18\x02 \x01(\t\x12\x15\n\rscaler_string\x18\x03 \x01(\t\"\xa5\x02\n\x12ModelUpdateRequest\x12=\n\x0ftraining_data_x\x18\x01 \x01(\x0b\x32$.api.communication.DataFeatureMatrix\x12=\n\x0ftraining_data_y\x18\x05 \x01(\x0b\x32$.api.communication.DataFeatureVector\x12+\n\told_model\x18\x02 \x01(\x0b\x32\x18.api.communication.Model\x12\x32\n\x0b\x64\x65vice_type\x18\x03 \x01(\x0e\x32\x1d.api.communication.DeviceType\x12\x30\n\nmodel_type\x18\x04 \x01(\x0e\x32\x1c.api.communication.ModelType\"B\n\x13ModelUpdateResponse\x12+\n\tnew_model\x18\x01 \x01(\x0b\x32\x18.api.communication.Model\"\xea\x01\n\x15ModelInferenceRequest\x12:\n\x0ctesting_data\x18\x01 \x01(\x0b\x32$.api.communication.DataFeatureMatrix\x12/\n\rcurrent_model\x18\x02 \x01(\x0b\x32\x18.api.communication.Model\x12\x32\n\x0b\x64\x65vice_type\x18\x03 \x01(\x0e\x32\x1d.api.communication.DeviceType\x12\x30\n\nmodel_type\x18\x04 \x01(\x0e\x32\x1c.api.communication.ModelType\"+\n\x16ModelInferenceResponse\x12\x11\n\tis_attack\x18\x01 \x01(\x08\"\xba\x06\n\x06Status\x12\x37\n\nevent_type\x18\x01 \x01(\x0e\x32#.api.communication.Status.EventType\x12\x30\n\x06launch\x18\x02 \x01(\x0b\x32 .api.communication.Status.Launch\x12\x43\n\x10model_distribute\x18\x03 \x01(\x0b\x32).api.communication.Status.ModelDistribute\x12\x41\n\x0fworker_register\x18\x04 \x01(\x0b\x32(.api.communication.Status.WorkerRegister\x12=\n\rworker_update\x18\x05 \x01(\x0b\x32&.api.communication.Status.WorkerUpdate\x1a\x1b\n\x06Launch\x12\x11\n\tworker_id\x18\x01 \x01(\x05\x1a=\n\x0fModelDistribute\x12\x11\n\tModelName\x18\x01 \x01(\t\x12\x17\n\x0fModelDataString\x18\x02 \x01(\t\x1a\x1f\n\x0eWorkerRegister\x12\r\n\x05token\x18\x01 \x01(\t\x1a\x85\x02\n\x0cWorkerUpdate\x12O\n\rmy_local_data\x18\x01 \x01(\x0b\x32\x38.api.communication.Status.WorkerUpdate.DataFeatureMatrix\x12\x10\n\x08my_round\x18\x02 \x01(\x05\x12\r\n\x05my_id\x18\x03 \x01(\x05\x1a#\n\x11\x44\x61taFeatureVector\x12\x0e\n\x06values\x18\x01 \x03(\x02\x1a^\n\x11\x44\x61taFeatureMatrix\x12I\n\x07vectors\x18\x01 \x03(\x0b\x32\x38.api.communication.Status.WorkerUpdate.DataFeatureVector\"y\n\tEventType\x12\x0c\n\x08REGISTER\x10\x00\x12\n\n\x06LAUNCH\x10\x01\x12\x14\n\x10Model_Distribute\x10\x02\x12\x13\n\x0fWORKER_REGISTER\x10\x03\x12\x11\n\rWORKER_UPDATE\x10\x04\x12\x14\n\x10WORKER_INFERENCE\x10\x05*.\n\nDeviceType\x12\x0e\n\nRANSOMWARE\x10\x00\x12\x10\n\x0c\x43ONCENTRATOR\x10\x01*\xff\x01\n\tModelType\x12\x1a\n\x16naive_bayes_classifier\x10\x00\x12\x12\n\x0eknn_classifier\x10\x01\x12\"\n\x1elogistic_regression_classifier\x10\x02\x12\x12\n\x0emlp_classifier\x10\x03\x12\x1c\n\x18random_forest_classifier\x10\x04\x12\x1c\n\x18\x64\x65\x63ision_tree_classifier\x10\x05\x12 \n\x1cgradient_boosting_classifier\x10\x06\x12\x12\n\x0esvm_classifier\x10\x07\x12\x18\n\x14svm_cross_validation\x10\x08\x32\xbc\x02\n\x0c\x43loudService\x12`\n\x0fGetUpdatedModel\x12%.api.communication.ModelUpdateRequest\x1a&.api.communication.ModelUpdateResponse\x12h\n\x11GetModelInference\x12(.api.communication.ModelInferenceRequest\x1a).api.communication.ModelInferenceResponse\x12`\n\x0fGetInitialModel\x12%.api.communication.ModelUpdateRequest\x1a&.api.communication.ModelUpdateResponseb\x06proto3'
+  serialized_pb=b'\n\x1b\x61pi/communication/api.proto\x12\x11\x61pi.communication\"#\n\x11\x44\x61taFeatureVector\x12\x0e\n\x06values\x18\x01 \x03(\x02\"J\n\x11\x44\x61taFeatureMatrix\x12\x35\n\x07vectors\x18\x01 \x03(\x0b\x32$.api.communication.DataFeatureVector\"\x1d\n\x0cModelContent\x12\r\n\x05value\x18\x01 \x03(\x02\"9\n\x05Model\x12\x19\n\x11model_data_string\x18\x02 \x01(\t\x12\x15\n\rscaler_string\x18\x03 \x01(\t\"\xa5\x02\n\x12ModelUpdateRequest\x12=\n\x0ftraining_data_x\x18\x01 \x01(\x0b\x32$.api.communication.DataFeatureMatrix\x12=\n\x0ftraining_data_y\x18\x05 \x01(\x0b\x32$.api.communication.DataFeatureVector\x12+\n\told_model\x18\x02 \x01(\x0b\x32\x18.api.communication.Model\x12\x32\n\x0b\x64\x65vice_type\x18\x03 \x01(\x0e\x32\x1d.api.communication.DeviceType\x12\x30\n\nmodel_type\x18\x04 \x01(\x0e\x32\x1c.api.communication.ModelType\"B\n\x13ModelUpdateResponse\x12+\n\tnew_model\x18\x01 \x01(\x0b\x32\x18.api.communication.Model\"\xea\x01\n\x15ModelInferenceRequest\x12:\n\x0ctesting_data\x18\x01 \x01(\x0b\x32$.api.communication.DataFeatureMatrix\x12/\n\rcurrent_model\x18\x02 \x01(\x0b\x32\x18.api.communication.Model\x12\x32\n\x0b\x64\x65vice_type\x18\x03 \x01(\x0e\x32\x1d.api.communication.DeviceType\x12\x30\n\nmodel_type\x18\x04 \x01(\x0e\x32\x1c.api.communication.ModelType\"+\n\x16ModelInferenceResponse\x12\x11\n\tis_attack\x18\x01 \x01(\x08\"\xba\x06\n\x06Status\x12\x37\n\nevent_type\x18\x01 \x01(\x0e\x32#.api.communication.Status.EventType\x12\x30\n\x06launch\x18\x02 \x01(\x0b\x32 .api.communication.Status.Launch\x12\x43\n\x10model_distribute\x18\x03 \x01(\x0b\x32).api.communication.Status.ModelDistribute\x12\x41\n\x0fworker_register\x18\x04 \x01(\x0b\x32(.api.communication.Status.WorkerRegister\x12=\n\rworker_update\x18\x05 \x01(\x0b\x32&.api.communication.Status.WorkerUpdate\x1a\x1b\n\x06Launch\x12\x11\n\tworker_id\x18\x01 \x01(\x05\x1a=\n\x0fModelDistribute\x12\x11\n\tModelName\x18\x01 \x01(\t\x12\x17\n\x0fModelDataString\x18\x02 \x01(\t\x1a\x1f\n\x0eWorkerRegister\x12\r\n\x05token\x18\x01 \x01(\t\x1a\x85\x02\n\x0cWorkerUpdate\x12O\n\rmy_local_data\x18\x01 \x01(\x0b\x32\x38.api.communication.Status.WorkerUpdate.DataFeatureMatrix\x12\x10\n\x08my_round\x18\x02 \x01(\x05\x12\r\n\x05my_id\x18\x03 \x01(\x05\x1a#\n\x11\x44\x61taFeatureVector\x12\x0e\n\x06values\x18\x01 \x03(\x02\x1a^\n\x11\x44\x61taFeatureMatrix\x12I\n\x07vectors\x18\x01 \x03(\x0b\x32\x38.api.communication.Status.WorkerUpdate.DataFeatureVector\"y\n\tEventType\x12\x0c\n\x08REGISTER\x10\x00\x12\n\n\x06LAUNCH\x10\x01\x12\x14\n\x10Model_Distribute\x10\x02\x12\x13\n\x0fWORKER_REGISTER\x10\x03\x12\x11\n\rWORKER_UPDATE\x10\x04\x12\x14\n\x10WORKER_INFERENCE\x10\x05*.\n\nDeviceType\x12\x0e\n\nRANSOMWARE\x10\x00\x12\x10\n\x0c\x43ONCENTRATOR\x10\x01*\xff\x01\n\tModelType\x12\x1a\n\x16naive_bayes_classifier\x10\x00\x12\x12\n\x0eknn_classifier\x10\x01\x12\"\n\x1elogistic_regression_classifier\x10\x02\x12\x12\n\x0emlp_classifier\x10\x03\x12\x1c\n\x18random_forest_classifier\x10\x04\x12\x1c\n\x18\x64\x65\x63ision_tree_classifier\x10\x05\x12 \n\x1cgradient_boosting_classifier\x10\x06\x12\x12\n\x0esvm_classifier\x10\x07\x12\x18\n\x14svm_cross_validation\x10\x08\x32\xbc\x02\n\x0c\x43loudService\x12`\n\x0fGetUpdatedModel\x12%.api.communication.ModelUpdateRequest\x1a&.api.communication.ModelUpdateResponse\x12h\n\x11GetModelInference\x12(.api.communication.ModelInferenceRequest\x1a).api.communication.ModelInferenceResponse\x12`\n\x0fGetInitialModel\x12%.api.communication.ModelUpdateRequest\x1a&.api.communication.ModelUpdateResponseb\x06proto3'
 )
 
 _DEVICETYPE = _descriptor.EnumDescriptor(
@@ -43,8 +43,8 @@ _DEVICETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1748,
-  serialized_end=1794,
+  serialized_start=1728,
+  serialized_end=1774,
 )
 _sym_db.RegisterEnumDescriptor(_DEVICETYPE)
 
@@ -104,8 +104,8 @@ _MODELTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1797,
-  serialized_end=2052,
+  serialized_start=1777,
+  serialized_end=2032,
 )
 _sym_db.RegisterEnumDescriptor(_MODELTYPE)
 
@@ -163,8 +163,8 @@ _STATUS_EVENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1625,
-  serialized_end=1746,
+  serialized_start=1605,
+  serialized_end=1726,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS_EVENTTYPE)
 
@@ -274,21 +274,14 @@ _MODEL = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='model_name', full_name='api.communication.Model.model_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='model_data_string', full_name='api.communication.Model.model_data_string', index=1,
+      name='model_data_string', full_name='api.communication.Model.model_data_string', index=0,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='scaler_string', full_name='api.communication.Model.scaler_string', index=2,
+      name='scaler_string', full_name='api.communication.Model.scaler_string', index=1,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -307,7 +300,7 @@ _MODEL = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=194,
-  serialized_end=271,
+  serialized_end=251,
 )
 
 
@@ -366,8 +359,8 @@ _MODELUPDATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=274,
-  serialized_end=567,
+  serialized_start=254,
+  serialized_end=547,
 )
 
 
@@ -398,8 +391,8 @@ _MODELUPDATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=569,
-  serialized_end=635,
+  serialized_start=549,
+  serialized_end=615,
 )
 
 
@@ -451,8 +444,8 @@ _MODELINFERENCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=638,
-  serialized_end=872,
+  serialized_start=618,
+  serialized_end=852,
 )
 
 
@@ -483,8 +476,8 @@ _MODELINFERENCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=874,
-  serialized_end=917,
+  serialized_start=854,
+  serialized_end=897,
 )
 
 
@@ -515,8 +508,8 @@ _STATUS_LAUNCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1236,
-  serialized_end=1263,
+  serialized_start=1216,
+  serialized_end=1243,
 )
 
 _STATUS_MODELDISTRIBUTE = _descriptor.Descriptor(
@@ -553,8 +546,8 @@ _STATUS_MODELDISTRIBUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1265,
-  serialized_end=1326,
+  serialized_start=1245,
+  serialized_end=1306,
 )
 
 _STATUS_WORKERREGISTER = _descriptor.Descriptor(
@@ -584,8 +577,8 @@ _STATUS_WORKERREGISTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1328,
-  serialized_end=1359,
+  serialized_start=1308,
+  serialized_end=1339,
 )
 
 _STATUS_WORKERUPDATE_DATAFEATUREVECTOR = _descriptor.Descriptor(
@@ -646,8 +639,8 @@ _STATUS_WORKERUPDATE_DATAFEATUREMATRIX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1529,
-  serialized_end=1623,
+  serialized_start=1509,
+  serialized_end=1603,
 )
 
 _STATUS_WORKERUPDATE = _descriptor.Descriptor(
@@ -691,8 +684,8 @@ _STATUS_WORKERUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1362,
-  serialized_end=1623,
+  serialized_start=1342,
+  serialized_end=1603,
 )
 
 _STATUS = _descriptor.Descriptor(
@@ -751,8 +744,8 @@ _STATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=920,
-  serialized_end=1746,
+  serialized_start=900,
+  serialized_end=1726,
 )
 
 _DATAFEATUREMATRIX.fields_by_name['vectors'].message_type = _DATAFEATUREVECTOR
@@ -913,8 +906,8 @@ _CLOUDSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2055,
-  serialized_end=2371,
+  serialized_start=2035,
+  serialized_end=2351,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetUpdatedModel',

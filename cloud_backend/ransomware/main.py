@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 from sklearn import metrics, preprocessing
 from sklearn.model_selection import train_test_split
 from cloud_backend.ransomware.algorithms.train import train_init_model
-from utils import obj_to_pickle_string, pickle_string_to_obj
+from utils import obj_to_pickle_string, pickle_string_to_obj, proto_vector_to_array, proto_matrix_to_array
+from api.communication import api_pb2
 
 def plot_single(data, color, **kwargs):
     plt.plot(data, color=color, **kwargs)
@@ -17,8 +18,9 @@ def model_predict(request):
 
 def model_update(request):
     scaler = preprocessing.StandardScaler()
-    x = scaler.fit_transform(request.raw_data_x)
-    y = request.raw_data_y
+    y = proto_vector_to_array(request.training_data_y)
+    x = proto_matrix_to_array(request.training_data_x)
+    x = scaler.fit_transform(x)
     assert request.old_model is not None
     model = pickle_string_to_obj(request.old_model.model_data_string)
 
@@ -34,8 +36,10 @@ def model_update(request):
 
 def model_init(request):
     scaler = preprocessing.StandardScaler()
-    x = scaler.fit_transform(request.raw_data_x)
-    y = request.raw_data_y
-    model = train_init_model(x, y, request.model_type)
+    y = proto_vector_to_array(request.training_data_y)
+    x = proto_matrix_to_array(request.training_data_x)
+    x = scaler.fit_transform(x)
+
+    model = train_init_model(x, y, api_pb2.ModelType.Name(request.model_type))
 
     return obj_to_pickle_string(model), obj_to_pickle_string(scaler)

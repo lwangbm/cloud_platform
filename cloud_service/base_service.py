@@ -14,20 +14,20 @@ class BaseCloudService(object):
         logger.info("-" * 100 + "\n")
         print("-" * 100 + "\n")
         logger.info("New get_updated_model call\n")
-        if request.device_type == "ransomware":
+        if api_pb2.DeviceType.Name(request.device_type) == "RANSOMWARE":
             return self._get_updated_model_ransomware(request)
         # ToDo: change this pat, if different devices have various model updating polices
-        elif request.device_type == "concentrator":
+        elif api_pb2.DeviceType.Name(request.device_type) == "CONCENTRATOR":
             return self._get_updated_model_ransomware(request)
 
     def get_initial_model(self, request):
         logger.info("-" * 100 + "\n")
         print("-" * 100 + "\n")
         logger.info("New get_initial_model call\n")
-        if request.device_type == "ransomware":
+        if api_pb2.DeviceType.Name(request.device_type) == "RANSOMWARE":
             return self._get_initial_model_ransomware(request)
         # ToDo: change this pat, if different devices have various model updating polices
-        elif request.device_type == "concentrator":
+        elif api_pb2.DeviceType.Name(request.device_type) == "CONCENTRATOR":
             return self._get_initial_model_ransomware(request)
 
     # ToDo: implement this function, in case we need cloud-side inference
@@ -41,17 +41,17 @@ class BaseCloudService(object):
 
         model, scaler = model_update(request)
         new_model = api_pb2.Model(
-            model_name=request.model_name, model_data_string=model, scaler_string=scaler
+             model_data_string=model, scaler_string=scaler
         )
         return api_pb2.ModelUpdateResponse(new_model=new_model)
 
     @staticmethod
-    def _get_initial_model_ransomware(self, request):
+    def _get_initial_model_ransomware(request):
         from cloud_backend.ransomware.main import model_init
 
         model, scaler = model_init(request)
         new_model = api_pb2.Model(
-            model_name=request.model_name, model_data_string=model, scaler_string=scaler
+            model_data_string=model, scaler_string=scaler
         )
         return api_pb2.ModelUpdateResponse(new_model=new_model)
 
