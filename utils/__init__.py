@@ -7,8 +7,11 @@ import functools
 import logging
 import os.path as osp
 import pickle
-from api.communication import api_pb2
+
 import numpy as np
+
+from api.communication import api_pb2
+
 ZERO = 1e-2
 
 
@@ -60,10 +63,12 @@ def pickle_string_to_obj(s):
     return pickle.loads(codecs.decode(s.encode(), "base64"))
     # return msgpack.unpackb(s, object_hook=msgpack_numpy.decode)
 
+
 def vector_to_proto_vector(vec):
     proto_vector = api_pb2.DataFeatureVector()
     proto_vector.values[:] = list(vec)
     return proto_vector
+
 
 def matrix_to_proto_matrix(mat):
     proto_matrix = api_pb2.DataFeatureMatrix()
@@ -71,10 +76,11 @@ def matrix_to_proto_matrix(mat):
     proto_matrix.vectors.extend(list(mat))
     return proto_matrix
 
+
 def np_array_to_proto_matrix(array):
     proto_vector_set = []
     for i in range(len(array)):
-        proto_vector_set.append(vector_to_proto_vector(array[i,:]))
+        proto_vector_set.append(vector_to_proto_vector(array[i, :]))
     proto_matrix = matrix_to_proto_matrix(proto_vector_set)
     return proto_matrix
 
@@ -84,6 +90,7 @@ def proto_vector_to_array(proto_vector):
     for item in proto_vector.values:
         vec.append(item)
     return np.array(vec).reshape(-1)
+
 
 def proto_matrix_to_array(proto_matrix):
     mat = []

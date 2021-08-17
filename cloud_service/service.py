@@ -32,7 +32,10 @@ class BaseService(api_pb2_grpc.CloudServiceServicer, HealthServicer):
 
     # ToDo: implement this function, in case we need cloud-side inference
     def GetModelInference(self, request, context):
-        if api_pb2.DeviceType.Name(request.device_type) in DEVICES and api_pb2.ModelType.Name(request.model_type) in MODEL_TYPES:
+        if (
+            api_pb2.DeviceType.Name(request.device_type) in DEVICES
+            and api_pb2.ModelType.Name(request.model_type) in MODEL_TYPES
+        ):
             service = BaseCloudService()
             is_attack = service.get_model_inference(request)
             return api_pb2.ModelInferenceResponse(is_attack=is_attack)
@@ -45,7 +48,10 @@ class BaseService(api_pb2_grpc.CloudServiceServicer, HealthServicer):
             )
 
     def GetUpdatedModel(self, request, context):
-        if api_pb2.DeviceType.Name(request.device_type) in DEVICES and api_pb2.ModelType.Name(request.model_type) in MODEL_TYPES:
+        if (
+            api_pb2.DeviceType.Name(request.device_type) in DEVICES
+            and api_pb2.ModelType.Name(request.model_type) in MODEL_TYPES
+        ):
             service = BaseCloudService()
             response = service.get_updated_model(request)
             return response
@@ -58,7 +64,10 @@ class BaseService(api_pb2_grpc.CloudServiceServicer, HealthServicer):
             )
 
     def GetInitialModel(self, request, context):
-        if api_pb2.DeviceType.Name(request.device_type) in DEVICES and api_pb2.ModelType.Name(request.model_type) in MODEL_TYPES:
+        if (
+            api_pb2.DeviceType.Name(request.device_type) in DEVICES
+            and api_pb2.ModelType.Name(request.model_type) in MODEL_TYPES
+        ):
             service = BaseCloudService()
             response = service.get_initial_model(request)
             return response

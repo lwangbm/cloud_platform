@@ -40,9 +40,7 @@ class BaseCloudService(object):
         from cloud_backend.ransomware.main import model_update
 
         model, scaler = model_update(request)
-        new_model = api_pb2.Model(
-             model_data_string=model, scaler_string=scaler
-        )
+        new_model = api_pb2.Model(model_data_string=model, scaler_string=scaler)
         return api_pb2.ModelUpdateResponse(new_model=new_model)
 
     @staticmethod
@@ -50,9 +48,7 @@ class BaseCloudService(object):
         from cloud_backend.ransomware.main import model_init
 
         model, scaler = model_init(request)
-        new_model = api_pb2.Model(
-            model_data_string=model, scaler_string=scaler
-        )
+        new_model = api_pb2.Model(model_data_string=model, scaler_string=scaler)
         return api_pb2.ModelUpdateResponse(new_model=new_model)
 
     # ToDo: change this pat, if different devices have various model updating polices

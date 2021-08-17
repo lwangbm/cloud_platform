@@ -67,8 +67,27 @@ For more detailed API designs, please refer to api/communication/qpi.proto
 
      ```
 
-### Test Cloud Services from another remote server (mimic device)
+### Test Cloud Services from Another Remote Server (mimic device)
 
 You may start cloud service at server_1:9996, expose this port for public access. And then launch another server to visit server_1:9996 using the same test script [mock_test/local_client_test.py](mock_test/local_client_test.py). 
 
 Note that you need to modify the `cloud_server = "localhost:%d"%CLOUD_PORT` to `cloud_server = "server_1:%d"%CLOUD_PORT`
+
+
+### Container based Deployment
+
+Once you modify the code, you can build a docker image by:
+
+```bash
+    bash scripts/docker_build.sh
+```
+
+and push it to the docker image repo:
+```bash
+    bash scripts/docker_push.sh
+```
+
+Note that you need to change `CLOUD_IMG=lwangbm/anomaly_detection_cloud:demo` in both bash scripts to your own docker repo
+
+
+Once the docker image is built and pushed, you can deploy it in the cloud, say in a kubernetes cluster or as function computing

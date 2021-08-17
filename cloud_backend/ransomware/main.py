@@ -3,9 +3,12 @@ from __future__ import division
 import matplotlib.pyplot as plt
 from sklearn import metrics, preprocessing
 from sklearn.model_selection import train_test_split
-from cloud_backend.ransomware.algorithms.train import train_init_model
-from utils import obj_to_pickle_string, pickle_string_to_obj, proto_vector_to_array, proto_matrix_to_array
+
 from api.communication import api_pb2
+from cloud_backend.ransomware.algorithms.train import train_init_model
+from utils import (obj_to_pickle_string, pickle_string_to_obj,
+                   proto_matrix_to_array, proto_vector_to_array)
+
 
 def plot_single(data, color, **kwargs):
     plt.plot(data, color=color, **kwargs)
@@ -33,6 +36,7 @@ def model_update(request):
     accuracy = metrics.accuracy_score(test_y, predict)
     print("accuracy: %.2f%%" % (100 * accuracy))
     return obj_to_pickle_string(model), obj_to_pickle_string(scaler)
+
 
 def model_init(request):
     scaler = preprocessing.StandardScaler()

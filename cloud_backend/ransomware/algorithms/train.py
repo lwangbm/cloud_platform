@@ -1,15 +1,14 @@
 import time
-import warnings, pickle
+import warnings
 
-from cloud_backend.ransomware.algorithms.basic import (decision_tree_classifier,
-                                         gradient_boosting_classifier,
-                                         knn_classifier,
-                                         logistic_regression_classifier,
-                                         mlp_classifier,
-                                         random_forest_classifier,
-                                         svm_classifier, svm_cross_validation, naive_bayes_classifier)
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
+
+from cloud_backend.ransomware.algorithms.basic import (
+    decision_tree_classifier, gradient_boosting_classifier, knn_classifier,
+    logistic_regression_classifier, mlp_classifier, naive_bayes_classifier,
+    random_forest_classifier, svm_classifier, svm_cross_validation)
+
 warnings.filterwarnings("ignore")
 
 
