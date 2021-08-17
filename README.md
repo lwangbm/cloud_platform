@@ -1,5 +1,6 @@
 # Cloud Platform for anomaly detection
 
+![Stack](doc.png)
 
 ## Project Structure
  - [api](api) folder defines cloud service api with protobuf
