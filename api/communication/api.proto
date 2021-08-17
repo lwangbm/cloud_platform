@@ -1,0 +1,114 @@
+syntax = "proto3";
+package api.communication;
+
+service CloudService {
+  rpc GetUpdatedModel(ModelUpdateRequest) returns (ModelUpdateResponse);
+  rpc GetModelInference(ModelInferenceRequest) returns (ModelInferenceResponse);
+  rpc GetInitialModel(ModelUpdateRequest) returns (ModelUpdateResponse);
+}
+
+enum DeviceType {
+  RANSOMWARE = 0;
+  CONCENTRATOR = 1;
+}
+
+enum ModelType {
+  naive_bayes_classifier = 0;
+  knn_classifier = 1;
+  logistic_regression_classifier = 2;
+  mlp_classifier = 3;
+  random_forest_classifier = 4;
+  decision_tree_classifier = 5;
+  gradient_boosting_classifier = 6;
+  svm_classifier = 7;
+  svm_cross_validation = 8;
+}
+
+message DataFeatureVector {
+        repeated float values = 1;
+}
+
+message DataFeatureMatrix {
+    repeated DataFeatureVector vectors = 1;
+}
+
+message ModelContent {
+    repeated float value = 1;
+}
+
+message Model {
+        string model_name = 1;
+        string model_data_string = 2;
+        string scaler_string = 3;
+        // ModelContent ModelDataFloat = 3;
+}
+
+message ModelUpdateRequest {
+    DataFeatureMatrix training_data_x = 1;
+    DataFeatureVector training_data_y = 5;
+    Model old_model = 2;
+    DeviceType device_type = 3;
+    ModelType model_type = 4;
+}
+
+message ModelUpdateResponse {
+    Model new_model = 1;
+}
+
+message ModelInferenceRequest {
+    DataFeatureMatrix testing_data = 1;
+    Model current_model = 2;
+    DeviceType device_type = 3;
+    ModelType model_type = 4;
+}
+
+
+message ModelInferenceResponse {
+    bool is_attack = 1;
+}
+
+message Status {
+
+    enum EventType {
+        REGISTER = 0;
+        LAUNCH = 1;
+        Model_Distribute = 2;
+        WORKER_REGISTER = 3;
+        WORKER_UPDATE = 4;
+        WORKER_INFERENCE = 5;
+    }
+
+    message Launch {
+        int32 worker_id = 1;
+    }
+
+    message ModelDistribute {
+        string ModelName = 1;
+        string ModelDataString = 2;
+        // ModelContent ModelDataFloat = 3;
+    }
+
+    message WorkerRegister {
+        string token = 1;
+    }
+
+    message WorkerUpdate {
+
+        message DataFeatureVector {
+            repeated float values = 1;
+        }
+        message DataFeatureMatrix {
+            repeated DataFeatureVector vectors = 1;
+        }
+
+        DataFeatureMatrix my_local_data = 1;
+        int32 my_round = 2;
+        int32 my_id = 3;
+    }
+
+    EventType event_type = 1;
+    Launch launch = 2;
+    ModelDistribute model_distribute = 3;
+    WorkerRegister worker_register = 4;
+    WorkerUpdate worker_update = 5;
+}

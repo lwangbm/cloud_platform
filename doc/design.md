@@ -1,0 +1,4 @@
+DESIGN -*- mode: org; -*-
+
+#+STARTUP: 
+
